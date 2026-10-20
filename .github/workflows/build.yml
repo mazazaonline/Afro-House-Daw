@@ -8,6 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: unzip -q AfroHouseDAW.zip
+      - name: Fix slider line
+        run: |
+          sed -i 's/Slider(Modifier.weight(1f).padding(start = 8.dp), value/Slider(modifier = Modifier.weight(1f).padding(start = 8.dp), value/' AfroHouseDAW/app/src/main/java/com/afrohouse/daw/MainActivity.kt
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
